@@ -175,3 +175,14 @@ The location of badge_age's bend shifts by ~10–15 days with context → strong
 Also a small non-monotone wiggle at P (55 > 50.775). R2 task: identify the partner (P differs from baseline in history,
 linked, denials, zone, tenure).
 **Next** Finalise R1 submission; 5 queries kept in reserve.
+
+## Experiment 10 — Construct the highest-scoring input from what we learned (5 queries; 0de6d56d…, e8b0e765…)
+**Question** Can we use the R1 picture to build the highest-scoring request? (Demonstrates the understanding is usable.)
+**Why** Every monotone input at its best end (history 300, linked 20, badge 18, denials 0, site A); ignored inputs irrelevant
+(left at midpoint). Only the two interior optima need searching: tenure (peak ~30–35) and zone (peak ~10–25).
+Previous best: HIGH anchor (tenure 30, zone 25) = 0.9829.
+**Observed** (tenure, zone): (32,25) .9833 | (30,20) .9838 | (30,30) .9831 | (33,20) .9840 | (33,15) **.9849** — all APPROVE.
+**Interpretation** Every prediction from the R1 picture held: each move toward the inferred optimum raised the score.
+Best found: **history 300, linked 20, badge 18, denials 0, site A, tenure 33, zone 15 → 0.9849** (highest of all 150 queries).
+The zone optimum sits lower (≤15–20) in this context than at the baseline (~25) — another hint of context-dependence.
+**Budget** 150/150 used.

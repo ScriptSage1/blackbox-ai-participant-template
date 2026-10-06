@@ -1,7 +1,7 @@
 {
   "round": "round-1",
   "team": "BB-001",
-  "queries_used": 145,
+  "queries_used": 150,
   "claims": [
     {
       "type": "feature_effect",
@@ -430,7 +430,7 @@
           "141",
           "142"
         ],
-        "summary": "Decision cut-off on the score, not 0.5: walking from the baseline toward a low-score corner and bisecting gave APPROVE at .4595 and DECLINE at .4404; anchor-P queries add DECLINE at .4466 and APPROVE at .4541. Across all 145 queries the lowest APPROVE score is 0.4541 and the highest DECLINE is 0.4466 \u2014 zero exceptions to 'APPROVE iff score > ~0.45', so no decision rule separate from the score has been seen. Repeating the .4595 query gave the identical result (deterministic at the boundary)."
+        "summary": "Decision cut-off on the score, not 0.5: walking from the baseline toward a low-score corner and bisecting gave APPROVE at .4595 and DECLINE at .4404; anchor-P queries add DECLINE at .4466 and APPROVE at .4541. Across all 150 queries the lowest APPROVE score is 0.4541 and the highest DECLINE is 0.4466 \u2014 zero exceptions to 'APPROVE iff score > ~0.45', so no decision rule separate from the score has been seen. Repeating the .4595 query gave the identical result (deterministic at the boundary)."
       }
     }
   ]

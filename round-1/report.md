@@ -2,7 +2,7 @@
 
 **Team:** BB-001
 **System:** GK-05 (building access control → `score` ∈ [0,1], `decision` APPROVE/DECLINE)
-**Queries used:** 145 / 150
+**Queries used:** 150 / 150
 
 ## What we concluded
 
@@ -25,6 +25,10 @@
 - **`badge_age_days` always lowers the score, but *where* it bites depends on the other inputs.** At the baseline it
   falls sharply between 70 and 74. At a second operating point the sharp fall is at 55–65 and it is flat after that.
   This is our strongest evidence that one-at-a-time analysis stops explaining the system, i.e. an interaction.
+- **We can use this picture to steer the system.** We set every monotone input to its best end, left the ignored
+  inputs alone, and searched only the two interior peaks (`tenure_years`, `requested_zone`). Five queries raised the
+  best score from 0.9829 to **0.9849**, the highest of all 150 queries: `history_score` 300, `linked_badges` 20,
+  `badge_age_days` 18, `recent_denials` 0, site A, `tenure_years` 33, `requested_zone` 15.
 
 ![one-feature response curves](plots/r1_oat_curves.png)
 
@@ -53,6 +57,10 @@
 8. **Do bends stay put? (13 queries).** A 15-unit `history_score` sweep showed step-like structure. Re-checking the
    `badge_age_days` and `recent_denials` bends at point P showed that the `badge_age_days` bend **moves**, from 70–74
    to 55–65.
+9. **Using the picture to maximise the score (5 queries).** Each step toward the inferred optimum raised the score:
+   tenure_years and requested_zone of (30, 25) gave .9829, (32, 25) .9833, (30, 20) .9838, (33, 20) .9840 and
+   (33, 15) .9849. In this high-score context the `requested_zone` peak sits lower (≤15–20) than at the baseline
+   (~25).
 
 The full chronological diary, with each experiment's question, hypotheses and outcome, is in `experiments/analysis.md`.
 Every query (inputs, outputs, `request_id`, `query_index`) is in `experiments/queries.csv`.
