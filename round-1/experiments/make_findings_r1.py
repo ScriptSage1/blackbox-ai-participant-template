@@ -41,6 +41,12 @@ def fe(feature, direction, strength, conf, summary, ids=None):
                 confidence=conf, evidence=dict(query_ids=ids or oat(feature), summary=summary))
 
 
+MAX_IDS = [str(q["query_index"]) for q in Q if q["query_index"] >= 146]  # E10 score maximisation
+BEST = max(Q, key=lambda q: q["score"])
+BEST_TXT = (f"Best score of all {len(Q)} queries: {BEST['score']} (query {BEST['query_index']}: history_score "
+            f"{BEST['history_score']:g}, linked_badges {BEST['linked_badges']:g}, badge_age_days {BEST['badge_age_days']:g}, "
+            f"recent_denials {BEST['recent_denials']:g}, site {BEST['site']}, tenure_years {BEST['tenure_years']:g}, "
+            f"requested_zone {BEST['requested_zone']:g}).")
 lo_app = min(q["score"] for q in Q if q["decision"] == "APPROVE")
 hi_dec = max(q["score"] for q in Q if q["decision"] == "DECLINE")
 
@@ -57,7 +63,9 @@ claims = [
     fe("tenure_years", "non_monotonic", "strong", 0.75,
        "Baseline: 0→.629, 2.5→.636, 5→.671, 7.5→.736, 10→.792, 20→.821, 25→.825, 30→.836, 35→.833, 40→.818 — strong rise "
        "(steepest 5–10), peak ~30–35, then a decline to 40. Anchor P shows the same: 0→.385, 10→.530, 17→.580, 30→.643, "
-       "40→.628. The fall after the peak is small (~0.015–0.018) but replicated at both anchors; the dominant effect is increasing."),
+       "40→.628. The fall after the peak is small (~0.015–0.018) but replicated at both anchors; the dominant effect is increasing. "
+       "Score maximisation (all monotone inputs at their best end, queries 146–150) confirms an interior optimum: tenure 32–33 "
+       "beat 30 (.9833/.9840 vs .9829). " + BEST_TXT, oat("tenure_years") + MAX_IDS),
     fe("badge_age_days", "decreases", "moderate", 0.9,
        "Decreasing overall at both anchors (18 vs 75: .873→.691 at baseline, .691→.447 at P), but WHERE it drops depends on "
        "the other inputs. Baseline: 46.5 .821, 55 .809, 61 .786, 65 .762, 70 .754, 71 .745, 72 .725, 73 .709, 74 .688, "
@@ -70,7 +78,9 @@ claims = [
     fe("requested_zone", "decreases", "weak", 0.7,
        "Baseline: 0→.819, 10→.828, 25→.833, 37.5→.824, 50→.821, 62.5→.807, 75→.784, 87.5→.762, 100→.734; anchor P: "
        "0→.636, 25→.638, 57.5→.580, 75→.547, 100→.500. Slight rise (or flat) over 0–25, then steadily decreasing. "
-       "Weakest of the active numeric inputs; dominant direction decreasing."),
+       "Weakest of the active numeric inputs; dominant direction decreasing. Score maximisation (queries 146–150): with all other "
+       "inputs at their best, zone 15 > 20 > 25 > 30 (.9849, .9840/.9838, .9833, .9831), so in that context the optimum is "
+       "≤15–20. " + BEST_TXT, oat("requested_zone") + MAX_IDS),
     fe("site", "decreases", "weak", 0.6,
        "Categorical: same ordering A > B > C > D at three anchors. Baseline A .821, B .813, C .804, D .803; anchor P "
        "A .580, B .573, C .572, D .566; LOW anchor A .058 vs D .053. 'decreases' = in the order A→D. Small effect (≤0.02).",
@@ -96,12 +106,13 @@ claims += [
             "drop is instead at 55–65 (.596→.465) and 65–75 is nearly flat, so the bend location depends on other inputs "
             "(an interaction we will identify in Round 2)."))),
     dict(type="threshold", feature="score", value=0.450, tolerance=0.004, confidence=0.9, evidence=dict(
-        query_ids=score_ids(0.40, 0.50), summary=(
+        query_ids=[str(q["query_index"]) for q in Q], summary=(
             "Decision cut-off on the score, not 0.5: walking from the baseline toward a low-score corner and bisecting gave "
             "APPROVE at .4595 and DECLINE at .4404; anchor-P queries add DECLINE at .4466 and APPROVE at .4541. Across all "
             f"{len(Q)} queries the lowest APPROVE score is {lo_app} and the highest DECLINE is {hi_dec} — zero exceptions to "
             "'APPROVE iff score > ~0.45', so no decision rule separate from the score has been seen. Repeating the .4595 "
-            "query gave the identical result (deterministic at the boundary)."))),
+            "query gave the identical result (deterministic at the boundary). Evidence lists all queries because every one "
+            "of them is a check of this rule. " + BEST_TXT))),
 ]
 
 out = dict(round="round-1", team="BB-001", queries_used=len(Q), claims=claims)
