@@ -184,7 +184,7 @@ python surrogate.py                      # demo: champion, R1 baseline, a site-B
 python experiments/validate_replica.py   # full validation suite + plots
 ```
 
-**Training notebook:** `experiments/GK05_training_notebook.ipynb` rebuilds the replica step by step, with every
+**Training notebook:** `BB-001 training notebook.ipynb` (in `round-4/`) rebuilds the replica step by step, with every
 table and plot already shown (open it in Jupyter, VS Code or Colab).
 
 `surrogate.predict(rows)` takes a list of dicts with the GK-05 inputs and returns `[{"score", "decision"}]`. It needs
