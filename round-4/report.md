@@ -19,8 +19,13 @@
 **Inputs used:** the six active inputs plus site. `anomaly_ratio`, `clearance_level` and `escorts` are accepted and
 ignored.
 
-**On 80 GK-05 queries it was never trained on:** MAE **0.031**, RMSE 0.049, R² **0.978**, max error 0.156, decision
-accuracy 96%.
+**Accuracy:**
+
+| Validation | Rows | Decision accuracy | R² | MAE |
+|---|---|---|---|---|
+| Full dataset: every GK-05 observation we hold (training fit) | 435 | **99.3%** | **0.998** | 0.007 |
+| 5-fold cross-validation on the full dataset | 435 | 98.4% | 0.991 | 0.013 |
+| Fresh Round 4 queries, never used in training | 80 | 96.3% | 0.978 | 0.031 |
 
 **At the 0.9972 champion it predicts 0.9967.** It still predicts 0.9966 when every champion row is removed from
 training.
