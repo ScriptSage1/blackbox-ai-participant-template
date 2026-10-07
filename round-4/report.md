@@ -26,7 +26,7 @@ ignored.
 | Validation | Rows | Decision accuracy | R² | MAE |
 |---|---|---|---|---|
 | Full dataset: every GK-05 observation we hold (training fit) | 435 | **99.3%** | **0.999** | 0.005 |
-| 5-fold cross-validation on the full dataset | 435 | 98.9% | 0.994 | 0.011 |
+| 5-fold cross-validation on the full dataset | 435 | 98.9% | 0.993 | 0.011 |
 | Fresh Round 4 queries, never used in training | 80 | 97.5% | 0.985 | 0.028 |
 
 **At the 0.9972 champion it predicts 0.9968.** It still predicts 0.9967 when every champion row is removed from
@@ -127,7 +127,7 @@ Run with `python experiments/validate_replica.py`; results are in `experiments/v
 | Hold out public points | 35 | 0.008 | 0.012 | 0.942 | 0.036 | 1.000 |
 | Hold out R4 space-filling | 40 | 0.036 | 0.050 | 0.970 | 0.121 | 0.975 |
 | Hold out R4 disagreement | 40 | 0.021 | 0.033 | 0.991 | 0.100 | 0.975 |
-| 5-fold CV, all rows | 435 | 0.011 | 0.022 | 0.994 | 0.125 | 0.989 |
+| 5-fold CV, all rows | 435 | 0.011 | 0.022 | 0.993 | 0.125 | 0.989 |
 
 **Champion:** actual 0.9972, replica 0.9968, absolute error 0.0004.
 
@@ -183,6 +183,9 @@ cd round-4
 python surrogate.py                      # demo: champion, R1 baseline, a site-B floor row
 python experiments/validate_replica.py   # full validation suite + plots
 ```
+
+**Training notebook:** `experiments/GK05_training_notebook.ipynb` rebuilds the replica step by step, with every
+table and plot already shown (open it in Jupyter, VS Code or Colab).
 
 `surrogate.predict(rows)` takes a list of dicts with the GK-05 inputs and returns `[{"score", "decision"}]`. It needs
 numpy and scikit-learn, and it fits itself from `experiments/gk05_canonical.csv` on first call (about 20 s).
