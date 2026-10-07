@@ -1,7 +1,7 @@
 {
   "round": "round-2",
   "team": "BB-001",
-  "queries_used": 61,
+  "queries_used": 120,
   "claims": [
     {
       "type": "interaction",
@@ -65,6 +65,29 @@
       }
     },
     {
+      "type": "interaction",
+      "features": [
+        "recent_denials",
+        "linked_badges"
+      ],
+      "confidence": 0.8,
+      "evidence": {
+        "query_ids": [
+          "15",
+          "26",
+          "97",
+          "98",
+          "99",
+          "100",
+          "101",
+          "102",
+          "103",
+          "104"
+        ],
+        "summary": "The benefit of a small number of recent_denials (0.5 vs 0) near the top exists only when linked_badges is high. Design: from the champion move ONE suspect to its Round-1 baseline value and compare denials 0.5 vs 0. s(0.5)-s(0): champion context +0.0018 (q26 vs q15); linked 10 -0.0001 (q98/q97, benefit vanishes); badge 46.5 +0.0026 (q100/q99); history 600 +0.0032 (q102/q101); zone 50 +0.0013 (q104/q103). linked_badges is therefore the input that gates both near-top effects (this one and the badge_age flip). It also explains why denials 0-1.25 was flat at the Round 1 baseline, where linked_badges was 10."
+      }
+    },
+    {
       "type": "feature_effect",
       "feature": "recent_denials",
       "direction": "non_monotonic",
@@ -104,9 +127,14 @@
           "58",
           "59",
           "60",
-          "61"
+          "61",
+          "72",
+          "73",
+          "76",
+          "77",
+          "78"
         ],
-        "summary": "Near the top: linked 16 .9942, 17 .9939, 18 .9945, 19 .9942 (and BB-008's published 20 .9899, reproduced context) at denials 0; 17.5 .9960, 18 .9966, 19 .9961 at denials 0.5; linked 20 costs ~0.006 even with badge 25-27 (q58, q59). At the Round 1 baseline linked was monotone increasing (0 .622 -> 20 .902), so the near-top optimum (~18) reflects context/interaction."
+        "summary": "Near the top: linked 16 .9942, 17 .9939, 18 .9945, 19 .9942 (and BB-008's published 20 .9899, reproduced context) at denials 0; 17.5 .9960, 18 .9966, 19 .9961 at denials 0.5; linked 20 costs ~0.006 even with badge 25-27 (q58, q59). Fractional values matter (not rounded): 18.2/18.3/18.4 .9970, 18.5 .9967, 18.6 .9958 (q72-q78) vs 18 .9968 and 19 .9961. At the Round 1 baseline linked was monotone increasing (0 .622 -> 20 .902), so the near-top optimum (~18) reflects context/interaction."
       }
     },
     {
@@ -276,9 +304,68 @@
           "58",
           "59",
           "60",
-          "61"
+          "61",
+          "62",
+          "63",
+          "64",
+          "65",
+          "66",
+          "67",
+          "68",
+          "69",
+          "70",
+          "71",
+          "72",
+          "73",
+          "74",
+          "75",
+          "76",
+          "77",
+          "78",
+          "79",
+          "80",
+          "81",
+          "82",
+          "83",
+          "84",
+          "85",
+          "86",
+          "87",
+          "88",
+          "89",
+          "90",
+          "91",
+          "92",
+          "93",
+          "94",
+          "95",
+          "96",
+          "97",
+          "98",
+          "99",
+          "100",
+          "101",
+          "102",
+          "103",
+          "104",
+          "105",
+          "106",
+          "107",
+          "108",
+          "109",
+          "110",
+          "111",
+          "112",
+          "113",
+          "114",
+          "115",
+          "116",
+          "117",
+          "118",
+          "119",
+          "120"
         ],
-        "summary": "The joint optimum is not the combination of per-input optima found at the Round 1 baseline: there, lowest badge age, highest linked_badges, lowest history, 0 denials and site A were each best; near the top the best values are badge ~23, linked 18, history ~350, denials ~0.5, zone ~14-18, tenure ~22, site B (B .9946 > A .9939 > C .9924 > D .9881, q12/q13/q21/q22). Every Round 2 query is a comparison against this joint optimum. Starting point: BB-008's published 0.9945 input, verified by our own reproduction (q1, exact). Best score of Round 2: 0.9968 (R2 query 35: badge_age_days 23, linked_badges 18, history_score 349, recent_denials 0.5, requested_zone 14, site B, tenure_years 22; anomaly_ratio 0, clearance_level 75, escorts 0)."
+        "summary": "The joint optimum is not the combination of per-input optima found at the Round 1 baseline: there, lowest badge age, highest linked_badges, lowest history, 0 denials and site A were each best; near the top the best values are badge ~23, linked 18, history ~350, denials ~0.5, zone ~14-18, tenure ~22, site B (B .9946 > A .9939 > C .9924 > D .9881, q12/q13/q21/q22). Every Round 2 query is a comparison against this joint optimum. Starting point: BB-008's published 0.9945 input, verified by our own reproduction (q1, exact). Best score of Round 2: 0.9972 (R2 query 83: badge_age_days 23.5, linked_badges 18.4, history_score 349, recent_denials 0.5, requested_zone 18, site B, tenure_years 22; anomaly_ratio 0, clearance_level 75, escorts 0)."
       }
     }
   ]

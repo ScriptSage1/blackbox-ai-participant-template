@@ -35,16 +35,25 @@ claims = [
         query_ids=ids((45, 51)), summary=(
             "The older-badge advantage is larger when recent_denials is high: s(23)-s(18) = +0.0026 at denials 0.5 but "
             "+0.0070 at denials 2.5 (q50/q51), other inputs fixed. Only two levels tested, so moderate confidence."))),
+    dict(type="interaction", features=["recent_denials", "linked_badges"], confidence=0.8, evidence=dict(
+        query_ids=ids(15, 26, (97, 104)), summary=(
+            "The benefit of a small number of recent_denials (0.5 vs 0) near the top exists only when linked_badges is high. "
+            "Design: from the champion move ONE suspect to its Round-1 baseline value and compare denials 0.5 vs 0. "
+            "s(0.5)-s(0): champion context +0.0018 (q26 vs q15); linked 10 -0.0001 (q98/q97, benefit vanishes); badge 46.5 "
+            "+0.0026 (q100/q99); history 600 +0.0032 (q102/q101); zone 50 +0.0013 (q104/q103). linked_badges is therefore the "
+            "input that gates both near-top effects (this one and the badge_age flip). It also explains why denials 0-1.25 "
+            "was flat at the Round 1 baseline, where linked_badges was 10."))),
     dict(type="feature_effect", feature="recent_denials", direction="non_monotonic", strength="moderate", confidence=0.85,
          evidence=dict(query_ids=ids(15, (26, 34)), summary=(
              "Near the top (champion context, zone 16) the score is NOT best at 0 denials: 0 .9948, 0.25 .9962, 0.4 .9963, "
              "0.5 .9966, 0.6 .9960, 0.75 .9958, 1.0 .9940, 1.25 .9959, 1.5 .9926, 2.0 .9940 — jagged, peak at ~0.5. "
              "At the Round 1 baseline 0 to 1.25 was flat (.833/.832), so this is context-dependent."))),
     dict(type="feature_effect", feature="linked_badges", direction="non_monotonic", strength="moderate", confidence=0.85,
-         evidence=dict(query_ids=ids(1, 3, 4, 43, 44, (56, 61)), summary=(
+         evidence=dict(query_ids=ids(1, 3, 4, 43, 44, (56, 61), (72, 73), (76, 78)), summary=(
              "Near the top: linked 16 .9942, 17 .9939, 18 .9945, 19 .9942 (and BB-008's published 20 .9899, reproduced "
              "context) at denials 0; 17.5 .9960, 18 .9966, 19 .9961 at denials 0.5; linked 20 costs ~0.006 even with "
-             "badge 25-27 (q58, q59). At the Round 1 baseline linked was monotone increasing (0 .622 -> 20 .902), "
+             "badge 25-27 (q58, q59). Fractional values matter (not rounded): 18.2/18.3/18.4 .9970, 18.5 .9967, 18.6 .9958 (q72-q78) "
+             "vs 18 .9968 and 19 .9961. At the Round 1 baseline linked was monotone increasing (0 .622 -> 20 .902), "
              "so the near-top optimum (~18) reflects context/interaction."))),
     dict(type="feature_effect", feature="history_score", direction="non_monotonic", strength="moderate", confidence=0.8,
          evidence=dict(query_ids=ids(1, 9, 10, 41, 42, 2), summary=(

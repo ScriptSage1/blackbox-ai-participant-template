@@ -245,3 +245,36 @@ Rejected: history, zone, site as the partner.
 ## R2 live state (after q61)
 Budget 61/120 used · **Champion 0.9968 (q35)**: anomaly 0, badge 23, clearance 75, escorts 0, history 349, linked 18,
 denials 0.5, zone 14, site B, tenure 22 · Next: secure submission (PR), then spend the rest on joint multi-input tweaks.
+
+
+## R2-E9 — Fine steps at the 0.9968 champion (q62–71)
+zone 13 .9968 · 15 .9958 · 17 .9968; denials 0.45 .9967 · 0.55 .9966; history 345 .9967 · 353 .9964; badge 22.5 .9966 ·
+23.5 .9968; tenure 21.5 .9962. → a plateau with jagged dips (zone 15). No gain.
+
+## R2-E10 — Are inputs rounded before the model? (q72–75)
+**Hypotheses** H-a linked_badges/tenure_years are rounded to integers; H-b used as continuous values.
+**Prediction under H-a** linked 18.4 = linked 18 (.9968) exactly; 18.6 = linked 19 (.9961).
+**Observed** linked 18.4 **.9970 (new best)**, 18.6 .9958; tenure 22.4 / 22.6 = .9968 (= 22).
+**Interpretation** linked_badges is NOT rounded (H-a rejected for linked). tenure 22–22.6 is flat — consistent with
+rounding OR a wide split cell; not distinguishable here. Also rejected with existing data: badge/linked as a pure
+ratio (20/25 → .9906 vs 18/23 → .9968 at nearly the same ratio).
+
+## R2-E11–E13 — Exploit the new direction (q76–96)
+linked 18.2 / 18.3 / 18.4 .9970, 18.5 .9967; at linked 18.4: zone 18 **.9971**, badge 23.5 .9971; combined
+(badge 23.5, linked 18.4, zone 18) **.9972 (q83)**; ties at zone 17, denials 0.48/0.52. Fine steps (badge 23.75/24,
+history 347/351, tenure 22.9, linked 18.45) all ≤ .9972.
+
+## R2-E14 — What gates the recent_denials benefit? (q97–104)
+**Design** as E7: move ONE suspect to its baseline value, compare denials 0.5 vs 0.
+**Observed** s(0.5)−s(0): champion +0.0018 · **linked 10 −0.0001 (vanishes)** · badge 46.5 +0.0026 · history 600 +0.0032 · zone 50 +0.0013.
+**Interpretation** linked_badges gates this effect too → linked_badges is the hub of the near-top interactions; explains
+the flat 0–1.25 denials curve at the R1 baseline (linked 10 there).
+
+## R2-E15–E17 — Final exploitation (q105–120)
+Surrogate-picked local candidates (8): .9963–.9971, none better. Hand-picked combinations of the tied cells (8): six more
+.9972 ties, none higher. Budget exhausted.
+
+## R2 final state
+120/120 used · **Best 0.9972 (q83)**: badge 23.5, linked 18.4, history 349, denials 0.5, zone 18, site B, tenure 22
+(anomaly 0, clearance 75, escorts 0 — inert). Tied by q84, q93, q94, q113, q114, q116, q118–q120.
+Progress: 0.9849 (our R1 best) → 0.9945 (verified BB-008 input, q1) → 0.9966 (denials 0.5) → 0.9968 → 0.9970 (linked 18.4) → 0.9972.

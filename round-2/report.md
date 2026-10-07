@@ -2,8 +2,8 @@
 
 **Team:** BB-001
 **System:** GK-05
-**Queries used:** see `findings.json` (`queries_used`); budget 120
-**Best score this round:** stated in the last claim of `findings.json`, kept current as the round runs
+**Queries used:** 120 / 120
+**Best score this round:** **0.9972** (R2 query 83): badge_age_days 23.5, linked_badges 18.4, history_score 349, recent_denials 0.5, requested_zone 18, site B, tenure_years 22 (anomaly_ratio 0, clearance_level 75, escorts 0 — inert). Tied by 10 other queries.
 
 ## What we concluded
 
@@ -24,6 +24,9 @@
    +0.0026. Moving linked_badges to 10, with nothing else changed, reverses it (−0.0010). Moving `history_score`,
    `requested_zone` or `site` to their baseline values does not reverse it. High `recent_denials` makes the
    older-badge advantage larger (+0.0070 at 2.5).
+   **`linked_badges` also gates the `recent_denials` effect**: near the top, 0.5 denials beats 0 by +0.0018, but with
+   linked_badges at 10 the difference vanishes (−0.0001). Moving history, badge age or zone does not remove it.
+   `linked_badges` is the hub of the interactions that make the top region differ from the Round 1 baseline.
 3. **`recent_denials` has a context-dependent, jagged effect.** Near the top, 0.5 beats 0 (0.9966 vs 0.9948), and
    the curve zig-zags (1.0 .9940, 1.25 .9959, 1.5 .9926). At the Round 1 baseline, 0–1.25 was flat.
 4. **`anomaly_ratio`, `clearance_level` and `escorts` are dropped.** Their opposite extremes leave the score
@@ -46,7 +49,12 @@
    input. Best 0.9968 at zone 14 (q35).
 5. **Which input flips badge_age's preferred direction? (q45–55).** We moved one suspect at a time and compared badge
    23 against 18. Only `linked_badges` flips it. This is the experiment that tells the competing explanations apart.
-6. **Joint linked × badge probe (q56–61).** If high linked favours older badges, maybe linked 19–20 with badge 24–27
+6. **Rounding test (q72–75).** linked_badges 18.4 ≠ 18 and 18.6 ≠ 19, so linked_badges is used unrounded. That test
+   also found the next improvement (0.9970). tenure_years 22–22.6 is flat: rounding or a wide split cell, not resolved.
+7. **What gates the denials benefit? (q97–104)** Same one-suspect-at-a-time design: only `linked_badges` removes it.
+8. **Exploitation (q76–96, q105–120).** Combining the tied best cells gave **0.9972** (q83). Surrogate-picked and
+   hand-picked combinations afterwards produced ten exact ties and nothing higher, so this is a plateau.
+9. **Joint linked × badge probe (q56–61).** If high linked favours older badges, maybe linked 19–20 with badge 24–27
    would be better. It isn't: linked 20 costs about 0.006 at any badge age.
 
 The surrogate models (random forest, extra trees, gradient boosting, XGBoost, Gaussian process; CV error ≈0.002–0.004
@@ -65,6 +73,9 @@ The full diary is in `experiments/analysis.md`, and every Round 2 query is in `e
 - **The dropped inputs acting near the maximum.** They are unchanged at the champion too.
 - **Site A as best everywhere.** Near the top B .9946 > A .9939 > C .9924 > D .9881.
 - **linked 19–20 with an older badge beating the champion.** It is 0.004–0.006 worse.
+- **linked_badges rounded to an integer before the model.** 18.4 gives .9970 vs 18 .9968, and 18.6 gives .9958 vs 19 .9961.
+- **badge_age/linked_badges acting only as a ratio.** Pairs with nearly the same ratio differ: (20, 25) .9906 vs (18, 23) .9968.
+- **History, badge age or zone gating the denials benefit.** Only linked_badges removes it.
 
 ## What we are still unsure about
 
