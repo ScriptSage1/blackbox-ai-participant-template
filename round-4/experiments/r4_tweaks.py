@@ -11,12 +11,12 @@ from sklearn.model_selection import KFold
 from sklearn.preprocessing import SplineTransformer
 
 warnings.filterwarnings("ignore")
-ROOT = __import__("pathlib").Path(__file__).resolve().parent.parent
+HERE = __import__("pathlib").Path(__file__).resolve().parent   # run from round-4/experiments/
 RANGES = {"badge_age_days": (18, 75), "history_score": (300, 900), "linked_badges": (0, 20),
           "recent_denials": (0, 5), "requested_zone": (0, 100), "tenure_years": (0, 40)}
 SITES = ["A", "B", "C", "D"]
 FLOOR_T, CUT = 10.858, 0.4484
-df = pd.read_csv(ROOT / "template" / "round-4" / "experiments" / "gk05_canonical.csv")
+df = pd.read_csv(HERE / "gk05_canonical.csv")
 
 
 def num(d):
@@ -140,7 +140,7 @@ CANDS = {
 if __name__ == "__main__":
     res = Parallel(n_jobs=min(len(CANDS), 19), verbose=0)(delayed(evaluate)(n, c) for n, c in CANDS.items())
     res.sort(key=lambda r: r["fresh_MAE"])
-    json.dump(res, open(ROOT / "data" / "r4_tweaks.json", "w"), indent=1)
+    json.dump(res, open(HERE / "r4_tweaks.json", "w"), indent=1)
     base = next(r for r in res if r["name"].startswith("current"))
     print(f"{'candidate':32s} fresh: MAE   RMSE   max   acc  | LGO mean | CV: MAE   max   acc | wins all 3?")
     for r in res:
