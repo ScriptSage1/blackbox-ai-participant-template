@@ -2,7 +2,7 @@
 
 **Team:** BB-001
 **System:** GK-05
-**Queries used:** 164 / 170 (50 extra queries were granted mid-round)
+**Queries used:** 170 / 170 (50 extra queries were granted mid-round)
 **Best score this round:** **0.9972** (R2 query 83): badge_age_days 23.5, linked_badges 18.4, history_score 349, recent_denials 0.5, requested_zone 18, site B, tenure_years 22 (anomaly_ratio 0, clearance_level 75, escorts 0 — inert). Tied by 10 other queries.
 
 ## What we concluded

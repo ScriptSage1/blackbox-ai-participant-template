@@ -1,7 +1,7 @@
 {
   "round": "round-2",
   "team": "BB-001",
-  "queries_used": 164,
+  "queries_used": 170,
   "claims": [
     {
       "type": "interaction",
@@ -413,7 +413,13 @@
           "161",
           "162",
           "163",
-          "164"
+          "164",
+          "165",
+          "166",
+          "167",
+          "168",
+          "169",
+          "170"
         ],
         "summary": "The joint optimum is not the combination of per-input optima found at the Round 1 baseline: there, lowest badge age, highest linked_badges, lowest history, 0 denials and site A were each best; near the top the best values are badge ~23, linked 18, history ~350, denials ~0.5, zone ~14-18, tenure ~22, site B (B .9946 > A .9939 > C .9924 > D .9881, q12/q13/q21/q22). Every Round 2 query is a comparison against this joint optimum. Starting point: BB-008's published 0.9945 input, verified by our own reproduction (q1, exact). Best score of Round 2: 0.9972 (R2 query 83: badge_age_days 23.5, linked_badges 18.4, history_score 349, recent_denials 0.5, requested_zone 18, site B, tenure_years 22; anomaly_ratio 0, clearance_level 75, escorts 0)."
       }

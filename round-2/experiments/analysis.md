@@ -292,3 +292,7 @@ denials/linked predicts the denials optimum to scale with linked → at linked 1
 upgraded → .9948 max (not better).
 **E24/E25 (q159–164)** denials bonus vs linked: 13.8 0 · 15 +0.0006 · 16 +0.0016 · 17 +0.0023 · 18 +0.0018 → step at linked ≈15.
 **State** 164/170 used (6 kept in reserve). Champion unchanged 0.9972 (q83).
+
+**E26 Final score attempts (q165–170)** untried values at the champion: zone 19 .9967 · tenure 23 .9971 · linked 18.1 .9971 ·
+history 348 + badge 23.6 .9971 · denials 0.4 .9969 · zone 19 + tenure 23 + badge 23.6 .9966. No gain.
+**Final R2 state** 170/170 used. Best **0.9972** (q83), unchanged; the plateau edges are now mapped in every input.
