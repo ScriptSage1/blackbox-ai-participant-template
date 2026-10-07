@@ -6,11 +6,14 @@
               "anomaly_ratio": 0, "clearance_level": 75, "escorts": 0}])
     -> [{"score": ..., "decision": "APPROVE"}]
 
-Architecture (chosen by error on 80 GK-05 queries the model had not seen, see report.md):
+Architecture (chosen by error on 80 GK-05 queries the model had not seen, leave-one-group-out and 5-fold CV;
+see report.md):
   1. Gate: site B with tenure_years < 10.86 -> score 0.032 exactly (198/198 site-B rows separated, no exceptions).
   2. Otherwise: average, in logit space, of
-       a. an additive spline model (GAM: cubic B-splines per input + ridge) - the smooth global shape, and
-       b. a Gaussian process (Matern 3/2, one length scale per input) - the local interactions near observed data.
+       a. an additive spline model (GAM: cubic B-splines with 8 knots per input, ridge-regularised) PLUS tensor-product
+          terms for the two interactions found in Round 2: linked_badges x badge_age_days and
+          linked_badges x recent_denials, and
+       b. a Gaussian process (Matern 1/2, one length scale per input) - local corrections near observed data.
   3. decision = APPROVE if score > 0.4484 (observed: max DECLINE 0.4466, min APPROVE 0.4502).
 Inputs used: the 6 active inputs + site. anomaly_ratio, clearance_level and escorts are accepted and ignored
 (no effect in any test across four rounds of data, and including them never improved held-out error).
@@ -23,7 +26,6 @@ import numpy as np
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import Matern, ConstantKernel, WhiteKernel
 from sklearn.linear_model import RidgeCV
-from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import SplineTransformer
 
 DATA = Path(__file__).parent / "experiments" / "gk05_canonical.csv"
@@ -32,13 +34,17 @@ RANGES = {"badge_age_days": (18, 75), "history_score": (300, 900), "linked_badge
 SITES = ["A", "B", "C", "D"]
 FLOOR_SCORE, FLOOR_TENURE = 0.032, 10.858     # site-B gate; tenure threshold midway between 10.338 and 11.377
 CUTOFF = 0.4484
+KNOTS = 8
+PAIRS = [("linked_badges", "badge_age_days"), ("linked_badges", "recent_denials")]   # Round 2 interactions
 _models = None
 
 
-def _features(rows):
-    X = np.array([[(float(r[k]) - lo) / (hi - lo) for k, (lo, hi) in RANGES.items()] for r in rows])
-    S = np.array([[r["site"] == s for s in SITES] for r in rows], float)
-    return np.hstack([X, S])
+def _num(rows):
+    return np.array([[(float(r[k]) - lo) / (hi - lo) for k, (lo, hi) in RANGES.items()] for r in rows])
+
+
+def _site(rows):
+    return np.array([[r["site"] == s for s in SITES] for r in rows], float)
 
 
 def _gated(rows):
@@ -50,12 +56,35 @@ def _logit(p):
     return np.log(p / (1 - p))
 
 
+class _GAM:
+    """Per-input cubic splines + site offsets + tensor-product splines for the Round 2 interaction pairs."""
+
+    def _design(self, rows):
+        Xn = _num(rows)
+        B = self.st.transform(Xn)
+        per = B.shape[1] // Xn.shape[1]
+        block = {k: B[:, i * per:(i + 1) * per] for i, k in enumerate(RANGES)}
+        cols = [B, _site(rows)]
+        for a, b in PAIRS:
+            cols.append(np.einsum("ni,nj->nij", block[a], block[b]).reshape(len(rows), -1))
+        return np.hstack(cols)
+
+    def fit(self, rows, z):
+        self.st = SplineTransformer(n_knots=KNOTS, degree=3).fit(_num(rows))
+        self.ridge = RidgeCV(alphas=np.logspace(-4, 4, 17)).fit(self._design(rows), z)
+        return self
+
+    def predict(self, rows):
+        return self.ridge.predict(self._design(rows))
+
+
 def fit(rows):
     """Fit the replica on observed GK-05 rows (dicts with the inputs and 'score')."""
     rows = [r for r, g in zip(rows, _gated(rows)) if not g]   # the gate explains the floor rows
-    X, z = _features(rows), _logit([float(r["score"]) for r in rows])
-    gam = make_pipeline(SplineTransformer(n_knots=6), RidgeCV(alphas=np.logspace(-3, 3, 13))).fit(X, z)
-    gp = GaussianProcessRegressor(ConstantKernel() * Matern(length_scale=np.ones(X.shape[1]), nu=1.5) + WhiteKernel(1e-3),
+    z = _logit([float(r["score"]) for r in rows])
+    gam = _GAM().fit(rows, z)
+    X = np.hstack([_num(rows), _site(rows)])
+    gp = GaussianProcessRegressor(ConstantKernel() * Matern(length_scale=np.ones(X.shape[1]), nu=0.5) + WhiteKernel(1e-3),
                                   normalize_y=True, n_restarts_optimizer=1, random_state=0).fit(X, z)
     return gam, gp
 
@@ -70,8 +99,7 @@ def _load():
 
 def predict_scores(rows, models=None):
     gam, gp = models or _load()
-    X = _features(rows)
-    z = (gam.predict(X) + gp.predict(X)) / 2
+    z = (gam.predict(rows) + gp.predict(np.hstack([_num(rows), _site(rows)]))) / 2
     return np.where(_gated(rows), FLOOR_SCORE, 1 / (1 + np.exp(-z)))
 
 

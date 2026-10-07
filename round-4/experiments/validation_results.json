@@ -1,137 +1,137 @@
 {
  "R4_unseen_80": {
   "n": 80,
-  "MAE": 0.0311,
-  "RMSE": 0.049,
-  "R2": 0.9785,
-  "MaxErr": 0.1563,
-  "DecisionAcc": 0.9625
+  "MAE": 0.028,
+  "RMSE": 0.0407,
+  "R2": 0.9852,
+  "MaxErr": 0.1223,
+  "DecisionAcc": 0.975
  },
  "leave_group_out": {
   "R1": {
    "n": 150,
-   "MAE": 0.0388,
-   "RMSE": 0.0491,
-   "R2": 0.958,
-   "MaxErr": 0.1723,
-   "DecisionAcc": 0.98
+   "MAE": 0.0319,
+   "RMSE": 0.0402,
+   "R2": 0.9719,
+   "MaxErr": 0.1206,
+   "DecisionAcc": 0.9533
   },
   "R2": {
    "n": 170,
-   "MAE": 0.0062,
-   "RMSE": 0.0132,
-   "R2": 0.9843,
-   "MaxErr": 0.0878,
-   "DecisionAcc": 0.9941
+   "MAE": 0.0068,
+   "RMSE": 0.0124,
+   "R2": 0.986,
+   "MaxErr": 0.0778,
+   "DecisionAcc": 1.0
   },
   "public": {
    "n": 35,
-   "MAE": 0.0088,
-   "RMSE": 0.0129,
-   "R2": 0.928,
-   "MaxErr": 0.047,
+   "MAE": 0.0076,
+   "RMSE": 0.0115,
+   "R2": 0.9421,
+   "MaxErr": 0.0357,
    "DecisionAcc": 1.0
   },
   "R4-space-filling": {
    "n": 40,
-   "MAE": 0.0369,
-   "RMSE": 0.0556,
-   "R2": 0.9626,
-   "MaxErr": 0.1525,
-   "DecisionAcc": 0.95
+   "MAE": 0.0362,
+   "RMSE": 0.0499,
+   "R2": 0.9698,
+   "MaxErr": 0.1209,
+   "DecisionAcc": 0.975
   },
   "R4-disagreement": {
    "n": 40,
-   "MAE": 0.0266,
-   "RMSE": 0.0399,
-   "R2": 0.9868,
-   "MaxErr": 0.1209,
-   "DecisionAcc": 0.95
+   "MAE": 0.0214,
+   "RMSE": 0.0333,
+   "R2": 0.9908,
+   "MaxErr": 0.0996,
+   "DecisionAcc": 0.975
   }
  },
  "cv5_all": {
   "n": 435,
-  "MAE": 0.0134,
-  "RMSE": 0.0254,
-  "R2": 0.9914,
-  "MaxErr": 0.1459,
-  "DecisionAcc": 0.9839
+  "MAE": 0.0113,
+  "RMSE": 0.022,
+  "R2": 0.9935,
+  "MaxErr": 0.1247,
+  "DecisionAcc": 0.9885
  },
  "champion": {
   "actual": 0.9972,
-  "replica_full": 0.9967,
-  "replica_without_champion_rows": 0.9966
+  "replica_full": 0.9968,
+  "replica_without_champion_rows": 0.9967
  },
  "interaction_fidelity": {
-  "badge23_minus_badge18 at linked 18 (obs +0.0026)": 0.0023,
-  "badge23_minus_badge18 at linked 10 (obs -0.0010)": 0.0034,
-  "denials0.5_minus_0 at linked 18 (obs +0.0018)": 0.0021,
-  "denials0.5_minus_0 at linked 10 (obs -0.0001)": 0.0034,
+  "badge23_minus_badge18 at linked 18 (obs +0.0026)": 0.0025,
+  "badge23_minus_badge18 at linked 10 (obs -0.0010)": 0.0005,
+  "denials0.5_minus_0 at linked 18 (obs +0.0018)": 0.0019,
+  "denials0.5_minus_0 at linked 10 (obs -0.0001)": 0.0016,
   "site-B tenure 10 vs 12 (gate; obs 0.032 vs normal)": [
    0.032,
-   0.9936
+   0.994
   ],
   "inert check: escorts 0 vs 6, anomaly 0 vs 1 (should be equal)": [
-   0.9967,
-   0.9967
+   0.9968,
+   0.9968
   ]
  },
  "worst_unseen_R4": [
   {
    "source": "R4-q3",
    "observed": 0.6627,
-   "predicted": 0.819,
+   "predicted": 0.785,
    "site": "C",
    "tenure": 2.331
   },
   {
-   "source": "R4-q29",
-   "observed": 0.6182,
-   "predicted": 0.7651,
-   "site": "A",
-   "tenure": 39.11
-  },
-  {
-   "source": "R4-q15",
-   "observed": 0.1525,
-   "predicted": 0.2917,
-   "site": "C",
-   "tenure": 4.148
-  },
-  {
-   "source": "R4-q27",
-   "observed": 0.4126,
-   "predicted": 0.5493,
-   "site": "C",
-   "tenure": 22.323
-  },
-  {
    "source": "R4-q23",
    "observed": 0.3478,
-   "predicted": 0.474,
+   "predicted": 0.4577,
    "site": "C",
    "tenure": 1.752
   },
   {
+   "source": "R4-q19",
+   "observed": 0.5598,
+   "predicted": 0.463,
+   "site": "C",
+   "tenure": 37.462
+  },
+  {
+   "source": "R4-q15",
+   "observed": 0.1525,
+   "predicted": 0.2434,
+   "site": "C",
+   "tenure": 4.148
+  },
+  {
    "source": "R4-q42",
    "observed": 0.5916,
-   "predicted": 0.7032,
+   "predicted": 0.6798,
    "site": "B",
    "tenure": 21.115
   },
   {
-   "source": "R4-q77",
-   "observed": 0.6916,
-   "predicted": 0.7939,
-   "site": "B",
-   "tenure": 13.932
+   "source": "R4-q31",
+   "observed": 0.3299,
+   "predicted": 0.411,
+   "site": "C",
+   "tenure": 19.106
   },
   {
-   "source": "R4-q6",
-   "observed": 0.6701,
-   "predicted": 0.7583,
-   "site": "B",
-   "tenure": 24.966
+   "source": "R4-q32",
+   "observed": 0.8018,
+   "predicted": 0.7246,
+   "site": "D",
+   "tenure": 31.903
+  },
+  {
+   "source": "R4-q33",
+   "observed": 0.7355,
+   "predicted": 0.6635,
+   "site": "A",
+   "tenure": 32.726
   }
  ]
 }
