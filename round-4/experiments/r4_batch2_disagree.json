@@ -1,0 +1,802 @@
+[
+ {
+  "anomaly_ratio": 0.052,
+  "badge_age_days": 25.317,
+  "clearance_level": 58.232,
+  "escorts": 4.333,
+  "history_score": 699.485,
+  "linked_badges": 19.099,
+  "recent_denials": 4.325,
+  "requested_zone": 60.64,
+  "tenure_years": 18.249,
+  "site": "B",
+  "committee_sd": 0.24370410369796178,
+  "committee_pred": [
+   0.7339056525439653,
+   0.09023518790725385,
+   0.586744336079457,
+   0.6695912342142722,
+   0.7428093075733296
+  ]
+ },
+ {
+  "anomaly_ratio": 0.772,
+  "badge_age_days": 22.97,
+  "clearance_level": 87.953,
+  "escorts": 4.53,
+  "history_score": 860.54,
+  "linked_badges": 16.564,
+  "recent_denials": 4.661,
+  "requested_zone": 69.249,
+  "tenure_years": 21.115,
+  "site": "B",
+  "committee_sd": 0.24214739226755733,
+  "committee_pred": [
+   0.6977806036223654,
+   0.0473319667404596,
+   0.5693895457726793,
+   0.5000377469695387,
+   0.7108684140108007
+  ]
+ },
+ {
+  "anomaly_ratio": 0.293,
+  "badge_age_days": 27.377,
+  "clearance_level": 45.927,
+  "escorts": 4.192,
+  "history_score": 864.132,
+  "linked_badges": 18.979,
+  "recent_denials": 3.281,
+  "requested_zone": 66.339,
+  "tenure_years": 29.302,
+  "site": "B",
+  "committee_sd": 0.2383126583485913,
+  "committee_pred": [
+   0.7558756240368549,
+   0.139989208370547,
+   0.6573372638476245,
+   0.7503370058025932,
+   0.7508664750224127
+  ]
+ },
+ {
+  "anomaly_ratio": 0.323,
+  "badge_age_days": 23.683,
+  "clearance_level": 98.986,
+  "escorts": 3.308,
+  "history_score": 567.899,
+  "linked_badges": 15.829,
+  "recent_denials": 4.809,
+  "requested_zone": 30.876,
+  "tenure_years": 1.463,
+  "site": "B",
+  "committee_sd": 0.2373752598434303,
+  "committee_pred": [
+   0.8296825250964744,
+   0.19401249106293625,
+   0.7263689491533782,
+   0.7746994449640268,
+   0.7953463426394891
+  ]
+ },
+ {
+  "anomaly_ratio": 0.29,
+  "badge_age_days": 29.348,
+  "clearance_level": 13.162,
+  "escorts": 5.734,
+  "history_score": 765.512,
+  "linked_badges": 17.287,
+  "recent_denials": 4.841,
+  "requested_zone": 20.318,
+  "tenure_years": 11.377,
+  "site": "B",
+  "committee_sd": 0.23428783169537862,
+  "committee_pred": [
+   0.7976967966968854,
+   0.10290879371980201,
+   0.5350080793956153,
+   0.5746054428899225,
+   0.6660467556862848
+  ]
+ },
+ {
+  "anomaly_ratio": 0.544,
+  "badge_age_days": 68.395,
+  "clearance_level": 98.759,
+  "escorts": 3.026,
+  "history_score": 488.832,
+  "linked_badges": 10.394,
+  "recent_denials": 4.977,
+  "requested_zone": 44.973,
+  "tenure_years": 10.08,
+  "site": "B",
+  "committee_sd": 0.23337717360058274,
+  "committee_pred": [
+   0.41190100324253,
+   0.08463161927071286,
+   0.4825981066913466,
+   0.6441075693567891,
+   0.7705864385083873
+  ]
+ },
+ {
+  "anomaly_ratio": 0.286,
+  "badge_age_days": 53.94,
+  "clearance_level": 85.875,
+  "escorts": 1.207,
+  "history_score": 475.757,
+  "linked_badges": 6.124,
+  "recent_denials": 4.351,
+  "requested_zone": 61.824,
+  "tenure_years": 13.829,
+  "site": "B",
+  "committee_sd": 0.23074723960981042,
+  "committee_pred": [
+   0.34913231016586227,
+   0.09196992662365676,
+   0.43941900950971907,
+   0.6227642919248589,
+   0.7629777300355967
+  ]
+ },
+ {
+  "anomaly_ratio": 0.286,
+  "badge_age_days": 25.837,
+  "clearance_level": 4.675,
+  "escorts": 1.309,
+  "history_score": 324.836,
+  "linked_badges": 1.029,
+  "recent_denials": 2.553,
+  "requested_zone": 73.522,
+  "tenure_years": 17.652,
+  "site": "B",
+  "committee_sd": 0.22826916708373365,
+  "committee_pred": [
+   0.7898069063502657,
+   0.22661184032998552,
+   0.7720643793486399,
+   0.8248742588773536,
+   0.7960560420032156
+  ]
+ },
+ {
+  "anomaly_ratio": 0.216,
+  "badge_age_days": 69.467,
+  "clearance_level": 95.894,
+  "escorts": 0.899,
+  "history_score": 485.934,
+  "linked_badges": 7.949,
+  "recent_denials": 4.431,
+  "requested_zone": 95.864,
+  "tenure_years": 15.3,
+  "site": "B",
+  "committee_sd": 0.225695419501635,
+  "committee_pred": [
+   0.26102596698653974,
+   0.07371840634824985,
+   0.39603767956338565,
+   0.6493879031790815,
+   0.6588695463486861
+  ]
+ },
+ {
+  "anomaly_ratio": 0.038,
+  "badge_age_days": 51.045,
+  "clearance_level": 62.316,
+  "escorts": 3.915,
+  "history_score": 454.63,
+  "linked_badges": 11.417,
+  "recent_denials": 4.743,
+  "requested_zone": 65.166,
+  "tenure_years": 18.903,
+  "site": "B",
+  "committee_sd": 0.22356893413840873,
+  "committee_pred": [
+   0.7185329723256334,
+   0.19785402798817156,
+   0.6917662212241543,
+   0.7613831534691349,
+   0.8157401429080404
+  ]
+ },
+ {
+  "anomaly_ratio": 0.423,
+  "badge_age_days": 34.229,
+  "clearance_level": 64.888,
+  "escorts": 4.511,
+  "history_score": 493.494,
+  "linked_badges": 12.862,
+  "recent_denials": 4.834,
+  "requested_zone": 48.889,
+  "tenure_years": 8.102,
+  "site": "B",
+  "committee_sd": 0.2230540863405785,
+  "committee_pred": [
+   0.6445197530186991,
+   0.19874904567030144,
+   0.41896310726442343,
+   0.7396465588254011,
+   0.8028166057724901
+  ]
+ },
+ {
+  "anomaly_ratio": 0.118,
+  "badge_age_days": 33.871,
+  "clearance_level": 57.7,
+  "escorts": 0.696,
+  "history_score": 535.292,
+  "linked_badges": 19.555,
+  "recent_denials": 4.994,
+  "requested_zone": 42.481,
+  "tenure_years": 4.896,
+  "site": "B",
+  "committee_sd": 0.22239529807815278,
+  "committee_pred": [
+   0.7330237341241923,
+   0.19988069316184479,
+   0.43574129659300803,
+   0.5729035591940118,
+   0.8287834034933933
+  ]
+ },
+ {
+  "anomaly_ratio": 0.986,
+  "badge_age_days": 57.585,
+  "clearance_level": 69.202,
+  "escorts": 4.547,
+  "history_score": 307.807,
+  "linked_badges": 9.396,
+  "recent_denials": 4.588,
+  "requested_zone": 49.595,
+  "tenure_years": 3.019,
+  "site": "B",
+  "committee_sd": 0.22235036034541142,
+  "committee_pred": [
+   0.4903477739605682,
+   0.13087556007665516,
+   0.2782116928675431,
+   0.2822242737158867,
+   0.7719340417644567
+  ]
+ },
+ {
+  "anomaly_ratio": 0.238,
+  "badge_age_days": 26.019,
+  "clearance_level": 74.451,
+  "escorts": 0.478,
+  "history_score": 386.811,
+  "linked_badges": 11.849,
+  "recent_denials": 4.827,
+  "requested_zone": 56.578,
+  "tenure_years": 0.054,
+  "site": "B",
+  "committee_sd": 0.2218482549569557,
+  "committee_pred": [
+   0.8284414170320114,
+   0.26169206832746944,
+   0.43876665775610885,
+   0.6544701581136138,
+   0.8247117680088631
+  ]
+ },
+ {
+  "anomaly_ratio": 0.644,
+  "badge_age_days": 28.217,
+  "clearance_level": 97.482,
+  "escorts": 1.017,
+  "history_score": 892.733,
+  "linked_badges": 18.796,
+  "recent_denials": 3.034,
+  "requested_zone": 12.15,
+  "tenure_years": 14.197,
+  "site": "B",
+  "committee_sd": 0.22175619700806956,
+  "committee_pred": [
+   0.8192019503859036,
+   0.24507612800700573,
+   0.7898091581597518,
+   0.7644320188926109,
+   0.8156067745016559
+  ]
+ },
+ {
+  "anomaly_ratio": 0.515,
+  "badge_age_days": 47.335,
+  "clearance_level": 89.326,
+  "escorts": 0.843,
+  "history_score": 360.71,
+  "linked_badges": 3.152,
+  "recent_denials": 1.51,
+  "requested_zone": 67.099,
+  "tenure_years": 1.58,
+  "site": "B",
+  "committee_sd": 0.2207604058113475,
+  "committee_pred": [
+   0.5991769997276892,
+   0.10217627670354114,
+   0.2312513814417715,
+   0.28025596346381376,
+   0.6739573679427489
+  ]
+ },
+ {
+  "anomaly_ratio": 0.631,
+  "badge_age_days": 59.171,
+  "clearance_level": 18.149,
+  "escorts": 2.388,
+  "history_score": 311.021,
+  "linked_badges": 5.906,
+  "recent_denials": 4.144,
+  "requested_zone": 95.629,
+  "tenure_years": 15.673,
+  "site": "B",
+  "committee_sd": 0.21678557112192892,
+  "committee_pred": [
+   0.36168776090691684,
+   0.08453761016022854,
+   0.23365035853297983,
+   0.5008837988243208,
+   0.7136490666986026
+  ]
+ },
+ {
+  "anomaly_ratio": 0.269,
+  "badge_age_days": 30.322,
+  "clearance_level": 58.606,
+  "escorts": 0.625,
+  "history_score": 749.178,
+  "linked_badges": 17.507,
+  "recent_denials": 4.733,
+  "requested_zone": 94.58,
+  "tenure_years": 22.051,
+  "site": "B",
+  "committee_sd": 0.21597069509303568,
+  "committee_pred": [
+   0.6901370307781272,
+   0.05704176332519477,
+   0.49007758268875906,
+   0.5411301033048301,
+   0.5636586525506827
+  ]
+ },
+ {
+  "anomaly_ratio": 0.117,
+  "badge_age_days": 29.209,
+  "clearance_level": 71.211,
+  "escorts": 1.039,
+  "history_score": 327.951,
+  "linked_badges": 5.065,
+  "recent_denials": 4.979,
+  "requested_zone": 60.859,
+  "tenure_years": 2.269,
+  "site": "B",
+  "committee_sd": 0.2157251096601526,
+  "committee_pred": [
+   0.6206444948709395,
+   0.11852433760302555,
+   0.40810011631488663,
+   0.5291648876764208,
+   0.7535584288374626
+  ]
+ },
+ {
+  "anomaly_ratio": 0.641,
+  "badge_age_days": 33.291,
+  "clearance_level": 71.691,
+  "escorts": 1.209,
+  "history_score": 336.539,
+  "linked_badges": 3.971,
+  "recent_denials": 2.617,
+  "requested_zone": 66.837,
+  "tenure_years": 2.654,
+  "site": "B",
+  "committee_sd": 0.21508749124272783,
+  "committee_pred": [
+   0.6540087778713901,
+   0.10448869571800731,
+   0.17342309370687034,
+   0.2526343188798918,
+   0.5450379894817886
+  ]
+ },
+ {
+  "anomaly_ratio": 0.194,
+  "badge_age_days": 26.258,
+  "clearance_level": 21.479,
+  "escorts": 3.495,
+  "history_score": 878.669,
+  "linked_badges": 19.809,
+  "recent_denials": 3.697,
+  "requested_zone": 53.188,
+  "tenure_years": 17.068,
+  "site": "B",
+  "committee_sd": 0.2148995183165209,
+  "committee_pred": [
+   0.5791353652154897,
+   0.05603318427187471,
+   0.5046439903961478,
+   0.5495007982709926,
+   0.6703195898121556
+  ]
+ },
+ {
+  "anomaly_ratio": 0.709,
+  "badge_age_days": 60.451,
+  "clearance_level": 89.889,
+  "escorts": 0.895,
+  "history_score": 376.583,
+  "linked_badges": 5.274,
+  "recent_denials": 2.927,
+  "requested_zone": 53.996,
+  "tenure_years": 4.043,
+  "site": "B",
+  "committee_sd": 0.21347711505291533,
+  "committee_pred": [
+   0.4803364022772539,
+   0.09999790409355838,
+   0.18538718809159652,
+   0.22718645050962605,
+   0.677796839518197
+  ]
+ },
+ {
+  "anomaly_ratio": 0.067,
+  "badge_age_days": 20.768,
+  "clearance_level": 22.871,
+  "escorts": 3.309,
+  "history_score": 360.975,
+  "linked_badges": 0.846,
+  "recent_denials": 0.627,
+  "requested_zone": 90.905,
+  "tenure_years": 6.632,
+  "site": "B",
+  "committee_sd": 0.21318254483696644,
+  "committee_pred": [
+   0.5892217007946556,
+   0.2611048435693354,
+   0.5733104285983563,
+   0.7156060351221559,
+   0.9142665333050547
+  ]
+ },
+ {
+  "anomaly_ratio": 0.023,
+  "badge_age_days": 43.027,
+  "clearance_level": 14.286,
+  "escorts": 1.805,
+  "history_score": 478.855,
+  "linked_badges": 11.664,
+  "recent_denials": 4.406,
+  "requested_zone": 33.114,
+  "tenure_years": 0.806,
+  "site": "B",
+  "committee_sd": 0.2113689843728885,
+  "committee_pred": [
+   0.6045444478040073,
+   0.13403847866451254,
+   0.5231769372177048,
+   0.6365020365960685,
+   0.7528291650509078
+  ]
+ },
+ {
+  "anomaly_ratio": 0.812,
+  "badge_age_days": 20.378,
+  "clearance_level": 98.483,
+  "escorts": 0.429,
+  "history_score": 458.049,
+  "linked_badges": 19.791,
+  "recent_denials": 4.45,
+  "requested_zone": 75.916,
+  "tenure_years": 6.08,
+  "site": "B",
+  "committee_sd": 0.2097913813471527,
+  "committee_pred": [
+   0.5807333962652438,
+   0.2606301280075797,
+   0.6393624120920618,
+   0.5445065957791776,
+   0.9171042393119504
+  ]
+ },
+ {
+  "anomaly_ratio": 0.236,
+  "badge_age_days": 42.805,
+  "clearance_level": 75.42,
+  "escorts": 4.516,
+  "history_score": 881.443,
+  "linked_badges": 15.96,
+  "recent_denials": 4.844,
+  "requested_zone": 27.075,
+  "tenure_years": 16.552,
+  "site": "B",
+  "committee_sd": 0.2089480423225688,
+  "committee_pred": [
+   0.6694248543309703,
+   0.077311569301662,
+   0.4727517056638795,
+   0.5383196454048267,
+   0.6104034535088095
+  ]
+ },
+ {
+  "anomaly_ratio": 0.483,
+  "badge_age_days": 52.681,
+  "clearance_level": 66.476,
+  "escorts": 2.878,
+  "history_score": 579.082,
+  "linked_badges": 16.0,
+  "recent_denials": 4.9,
+  "requested_zone": 71.574,
+  "tenure_years": 13.197,
+  "site": "B",
+  "committee_sd": 0.20863716635222446,
+  "committee_pred": [
+   0.656734366495332,
+   0.1361053121701558,
+   0.4396517102814238,
+   0.6329276849120039,
+   0.7005519380093828
+  ]
+ },
+ {
+  "anomaly_ratio": 0.32,
+  "badge_age_days": 66.448,
+  "clearance_level": 17.446,
+  "escorts": 5.073,
+  "history_score": 349.492,
+  "linked_badges": 3.589,
+  "recent_denials": 2.502,
+  "requested_zone": 67.585,
+  "tenure_years": 20.608,
+  "site": "B",
+  "committee_sd": 0.20850166279493548,
+  "committee_pred": [
+   0.7213922246268483,
+   0.1913919020826685,
+   0.5759551074791223,
+   0.6552570790124056,
+   0.7820200055964233
+  ]
+ },
+ {
+  "anomaly_ratio": 0.679,
+  "badge_age_days": 71.671,
+  "clearance_level": 20.884,
+  "escorts": 4.056,
+  "history_score": 431.111,
+  "linked_badges": 4.896,
+  "recent_denials": 4.376,
+  "requested_zone": 55.484,
+  "tenure_years": 17.759,
+  "site": "B",
+  "committee_sd": 0.20636607581903968,
+  "committee_pred": [
+   0.3333438579185655,
+   0.13611875754635608,
+   0.512991400834349,
+   0.5331222853625532,
+   0.7499595607686232
+  ]
+ },
+ {
+  "anomaly_ratio": 0.199,
+  "badge_age_days": 41.775,
+  "clearance_level": 46.349,
+  "escorts": 1.093,
+  "history_score": 602.756,
+  "linked_badges": 18.835,
+  "recent_denials": 4.956,
+  "requested_zone": 51.337,
+  "tenure_years": 26.896,
+  "site": "B",
+  "committee_sd": 0.20550869118040033,
+  "committee_pred": [
+   0.8353603428765084,
+   0.3094477382270448,
+   0.7059795932459431,
+   0.7717493520488408,
+   0.8874886582422413
+  ]
+ },
+ {
+  "anomaly_ratio": 0.647,
+  "badge_age_days": 33.859,
+  "clearance_level": 35.707,
+  "escorts": 4.097,
+  "history_score": 417.545,
+  "linked_badges": 9.229,
+  "recent_denials": 4.777,
+  "requested_zone": 11.221,
+  "tenure_years": 0.279,
+  "site": "B",
+  "committee_sd": 0.20478155761484046,
+  "committee_pred": [
+   0.8050330007190806,
+   0.2319420512302959,
+   0.49286029260325026,
+   0.5454292913453788,
+   0.7535464075840849
+  ]
+ },
+ {
+  "anomaly_ratio": 0.076,
+  "badge_age_days": 66.674,
+  "clearance_level": 7.119,
+  "escorts": 5.463,
+  "history_score": 389.563,
+  "linked_badges": 3.618,
+  "recent_denials": 0.584,
+  "requested_zone": 92.167,
+  "tenure_years": 5.232,
+  "site": "B",
+  "committee_sd": 0.20437722208174536,
+  "committee_pred": [
+   0.4026515941058085,
+   0.1926931303107881,
+   0.26515381545225886,
+   0.45082067348960814,
+   0.7832622766007278
+  ]
+ },
+ {
+  "anomaly_ratio": 0.976,
+  "badge_age_days": 20.55,
+  "clearance_level": 8.945,
+  "escorts": 4.003,
+  "history_score": 613.055,
+  "linked_badges": 18.934,
+  "recent_denials": 4.346,
+  "requested_zone": 24.809,
+  "tenure_years": 17.117,
+  "site": "B",
+  "committee_sd": 0.20246649821587562,
+  "committee_pred": [
+   0.8588496811272347,
+   0.32955748367470644,
+   0.779047606822655,
+   0.682175929655895,
+   0.8904127335827765
+  ]
+ },
+ {
+  "anomaly_ratio": 0.595,
+  "badge_age_days": 19.693,
+  "clearance_level": 16.538,
+  "escorts": 0.769,
+  "history_score": 822.39,
+  "linked_badges": 15.66,
+  "recent_denials": 2.509,
+  "requested_zone": 65.112,
+  "tenure_years": 0.532,
+  "site": "B",
+  "committee_sd": 0.20178969547856254,
+  "committee_pred": [
+   0.6512110736334331,
+   0.18977777098395548,
+   0.2770161084492933,
+   0.33525849208518776,
+   0.6841768526499853
+  ]
+ },
+ {
+  "anomaly_ratio": 0.604,
+  "badge_age_days": 31.019,
+  "clearance_level": 61.245,
+  "escorts": 2.08,
+  "history_score": 491.646,
+  "linked_badges": 8.592,
+  "recent_denials": 4.988,
+  "requested_zone": 20.157,
+  "tenure_years": 16.596,
+  "site": "B",
+  "committee_sd": 0.2016303375438309,
+  "committee_pred": [
+   0.8657365766771037,
+   0.3263425366390119,
+   0.8118706667761528,
+   0.8032284796176418,
+   0.8294031906164718
+  ]
+ },
+ {
+  "anomaly_ratio": 0.585,
+  "badge_age_days": 36.582,
+  "clearance_level": 1.738,
+  "escorts": 0.096,
+  "history_score": 304.199,
+  "linked_badges": 0.373,
+  "recent_denials": 0.963,
+  "requested_zone": 83.776,
+  "tenure_years": 19.457,
+  "site": "B",
+  "committee_sd": 0.20140633512399983,
+  "committee_pred": [
+   0.7756101179679253,
+   0.25523418699058764,
+   0.6264838306989298,
+   0.7334314538579592,
+   0.8057649436872606
+  ]
+ },
+ {
+  "anomaly_ratio": 0.962,
+  "badge_age_days": 55.151,
+  "clearance_level": 37.601,
+  "escorts": 4.792,
+  "history_score": 356.505,
+  "linked_badges": 3.397,
+  "recent_denials": 0.808,
+  "requested_zone": 90.134,
+  "tenure_years": 13.932,
+  "site": "B",
+  "committee_sd": 0.20127050140929104,
+  "committee_pred": [
+   0.6374941356906542,
+   0.23091914002703542,
+   0.47855879270257,
+   0.6304400426316559,
+   0.8369408818681159
+  ]
+ },
+ {
+  "anomaly_ratio": 0.504,
+  "badge_age_days": 49.305,
+  "clearance_level": 9.037,
+  "escorts": 3.421,
+  "history_score": 309.911,
+  "linked_badges": 0.411,
+  "recent_denials": 3.993,
+  "requested_zone": 61.836,
+  "tenure_years": 11.409,
+  "site": "B",
+  "committee_sd": 0.20121595580142923,
+  "committee_pred": [
+   0.2881616381974071,
+   0.10415708777852732,
+   0.21588795021514268,
+   0.4286998403041032,
+   0.6878233167932452
+  ]
+ },
+ {
+  "anomaly_ratio": 0.065,
+  "badge_age_days": 54.086,
+  "clearance_level": 46.275,
+  "escorts": 1.186,
+  "history_score": 359.189,
+  "linked_badges": 4.726,
+  "recent_denials": 2.307,
+  "requested_zone": 84.287,
+  "tenure_years": 13.039,
+  "site": "B",
+  "committee_sd": 0.20112366431748457,
+  "committee_pred": [
+   0.5571262279495293,
+   0.1264871380780153,
+   0.36492982221824494,
+   0.5448525651686708,
+   0.715670592217466
+  ]
+ },
+ {
+  "anomaly_ratio": 0.274,
+  "badge_age_days": 19.598,
+  "clearance_level": 37.958,
+  "escorts": 3.204,
+  "history_score": 526.162,
+  "linked_badges": 18.528,
+  "recent_denials": 4.528,
+  "requested_zone": 67.259,
+  "tenure_years": 21.184,
+  "site": "B",
+  "committee_sd": 0.20027658759012495,
+  "committee_pred": [
+   0.8709451841400685,
+   0.36423106889337187,
+   0.7705521537462489,
+   0.8301998081261566,
+   0.9239926329104091
+  ]
+ }
+]
