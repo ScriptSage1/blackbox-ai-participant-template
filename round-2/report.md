@@ -2,7 +2,7 @@
 
 **Team:** BB-001
 **System:** GK-05
-**Queries used:** 120 / 120
+**Queries used:** 164 / 170 (50 extra queries were granted mid-round)
 **Best score this round:** **0.9972** (R2 query 83): badge_age_days 23.5, linked_badges 18.4, history_score 349, recent_denials 0.5, requested_zone 18, site B, tenure_years 22 (anomaly_ratio 0, clearance_level 75, escorts 0 — inert). Tied by 10 other queries.
 
 ## What we concluded
@@ -35,14 +35,21 @@
    zone 16 < 14 = 18, linked 17 < 16 < 18) are typical of a tree ensemble's piecewise-constant output. This is a
    hypothesis, not a proven fact (see below).
 
-6. **Ratios between inputs: only weak candidates.** Our query budget was spent, so we tested ratios offline on all
-   270 of our queries. We added each of the 30 input ratios as an extra feature to a tree model and measured
-   held-out error (`experiments/ratio_search.py`). A ratio the system truly uses should cut the error sharply. The
-   best, `linked_badges / history_score`, cut it by only 3.8%; `requested_zone / tenure_years` came next at 3.0%.
-   We report both as low-confidence candidates (0.3 / 0.2), not as established.
-   Ratios we argue against:
-   - `badge_age_days / linked_badges`: near-equal ratios scored 0.9906 vs 0.9968.
-   - tenure/history, tenure/badge and zone/history: adding them made the model worse (+5–8%).
+6. **Ratios between inputs: no pair acts as a pure ratio (tested directly).** With the 50 extra queries we tested
+   ratios directly. If the score depends on a/b only, multiplying both inputs by the same factor leaves it unchanged.
+   At the Round 1 midpoint baseline (0.8213), where every input has a large effect, we scaled each of the 15 pairs of
+   active inputs by ×1.5 (q121–135). **All 15 moved the score**; for example `linked_badges/history_score` → 0.6305,
+   which also rejects the offline scan's top candidate.
+   - **`badge_age_days/linked_badges`:** matched at ×1.5 (0.8223), but the two separate effects simply cancel there.
+     ×0.5 (0.7743) and ×1.25 (0.8111) reject it.
+   - **`requested_zone/tenure_years`:** came closest (×0.5 .8194, ×0.75 .8088, ×1.5 .8121) but is not constant. It is
+     kept only as a low-confidence (0.15) candidate.
+   - **"Used alongside the raw inputs" versions:** we also tested `badge_age/linked` (the best badge age stays 23.5 at
+     linked 15) and `denials/linked` (the denials bonus does not shift with linked). Both are rejected.
+7. **The denials bonus is a step in `linked_badges`, at ≈15.** The gain from 0.5 denials over 0 is about 0 at
+   linked 9–14, +0.0006 at 15, +0.0016 at 16, +0.0023 at 17 and +0.0018 at 18.
+8. **The badge × linked interaction holds in a second region.** At the midpoint baseline, raising linked from 10 to
+   18 shifts the badge-23-vs-18 comparison by +0.0037, near the top by +0.0036.
 
 ## How we got there
 
@@ -85,6 +92,11 @@ The full diary is in `experiments/analysis.md`, and every Round 2 query is in `e
 - **linked_badges rounded to an integer before the model.** 18.4 gives .9970 vs 18 .9968, and 18.6 gives .9958 vs 19 .9961.
 - **badge_age/linked_badges acting only as a ratio.** Pairs with nearly the same ratio differ: (20, 25) .9906 vs (18, 23) .9968.
 - **History, badge age or zone gating the denials benefit.** Only linked_badges removes it.
+- **Any pair of inputs acting only as a ratio.** All 15 pairs fail the scale test (q121–139).
+- **badge_age/linked or denials/linked as derived ratio features.** Their predicted optimum shifts do not happen
+  (q143–148).
+- **Low history_score (300–325) near the top.** 300 .9944, 315 .9953, 325 .9952 vs 349 .9972 (q149–152).
+- **A better second region.** BB-009's 0.9922 point upgraded with our findings reaches only 0.9948 (q156–158).
 
 ## What we are still unsure about
 

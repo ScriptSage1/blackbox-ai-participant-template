@@ -278,3 +278,17 @@ Surrogate-picked local candidates (8): .9963–.9971, none better. Hand-picked c
 120/120 used · **Best 0.9972 (q83)**: badge 23.5, linked 18.4, history 349, denials 0.5, zone 18, site B, tenure 22
 (anomaly 0, clearance 75, escorts 0 — inert). Tied by q84, q93, q94, q113, q114, q116, q118–q120.
 Progress: 0.9849 (our R1 best) → 0.9945 (verified BB-008 input, q1) → 0.9966 (denials 0.5) → 0.9968 → 0.9970 (linked 18.4) → 0.9972.
+
+
+## R2 extra budget (+50 queries granted) — ratio tests and gating threshold (q121–164)
+**E18 Ratio-only test (q121–135).** Hypothesis per pair: score depends on a/b only → scaling both by 1.5 at the R1
+baseline leaves 0.8213 unchanged. Observed: all 15 pairs moved (linked×history .6305 … badge×linked .8223, zone×tenure .8121).
+**E19 Discriminate the two near-misses (q136–139).** badge×linked ×0.5 .7743, ×1.25 .8111 → its ×1.5 match was additive
+cancellation (additive predicted .8222). zone×tenure ×0.5 .8194, ×0.75 .8088 → not constant. **No pure ratio.**
+**E20/E21 Derived-ratio tests (q140–148).** badge/linked predicts best badge ≈19 at linked 15 → observed 23.5 best (rejected).
+denials/linked predicts the denials optimum to scale with linked → at linked 13.8 no bonus at all (rejected).
+**E22 (q149–152)** history 300/306/315/325 at the champion: .9944–.9953 (GP's prediction of .9977 wrong).
+**E23 (q153–158)** badge×linked shift replicated at the R1 baseline (+0.0037 vs +0.0036 at the top). BB-009 region
+upgraded → .9948 max (not better).
+**E24/E25 (q159–164)** denials bonus vs linked: 13.8 0 · 15 +0.0006 · 16 +0.0016 · 17 +0.0023 · 18 +0.0018 → step at linked ≈15.
+**State** 164/170 used (6 kept in reserve). Champion unchanged 0.9972 (q83).

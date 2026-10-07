@@ -22,8 +22,10 @@ def ids(*ranges):
 
 
 claims = [
-    dict(type="interaction", features=["badge_age_days", "linked_badges"], confidence=0.85, evidence=dict(
-        query_ids=ids(1, 3, 4, 7, 8, (17, 18), (35, 38), (45, 61)), summary=(
+    dict(type="interaction", features=["badge_age_days", "linked_badges"], confidence=0.9, evidence=dict(
+        query_ids=ids(1, 3, 4, 7, 8, (17, 18), (35, 38), (45, 61), (143, 145), (153, 155)), summary=(
+            "Replicated in a second region: at the R1 midpoint baseline, s(badge 23)-s(badge 18) is -0.0040 at linked 10 and "
+            "-0.0003 at linked 18 (q153-q155 with R1 q7), a shift of +0.0037 -- the same size as near the top (+0.0036). "
             "Whether a younger or older badge scores better depends on linked_badges. Design: at the champion "
             "(linked 18) move ONE suspect input to its Round-1 baseline value and compare badge_age 23 vs 18. "
             "s(23)-s(18): champion +0.0026 (q35 vs q45); history 600 +0.0033 (q47/q46); linked 10 -0.0010 (q49/q48, sign flips: "
@@ -85,17 +87,20 @@ claims.append(dict(type="interaction", features=["badge_age_days", "linked_badge
         "BB-008's published 0.9945 input, verified by our own reproduction (q1, exact). " + BEST_TXT))))
 
 claims += [
-    dict(type="derived_feature", features=["linked_badges", "history_score"], form="ratio", confidence=0.3, evidence=dict(
-        query_ids=ALL, summary=(
-            "Offline test on all our GK-05 queries (R1 150 + R2 120; no extra queries): adding each of the 30 ordered input "
-            "ratios as an extra feature to an ExtraTrees model of logit(score), 5-fold CV x2. linked_badges/history_score "
-            "gave the largest CV-error reduction (-3.8%, MAE 0.01063 -> 0.01023). Consistent with linked_badges being the hub "
-            "of the near-top interactions, but the gain is small, so this is a weak candidate, not an established ratio."))),
-    dict(type="derived_feature", features=["requested_zone", "tenure_years"], form="ratio", confidence=0.2, evidence=dict(
-        query_ids=ALL, summary=(
-            "Same offline ratio scan: requested_zone/tenure_years was the second-best ratio (-3.0% CV error). Weak "
-            "evidence only. Ratios we can argue against: badge_age_days/linked_badges (near-equal ratios 25/20 and 23/18 "
-            "scored .9906 vs .9968), and tenure/history, tenure/badge, zone/history, which made the model worse (+5 to +8%)."))),
+    dict(type="derived_feature", features=["requested_zone", "tenure_years"], form="ratio", confidence=0.15, evidence=dict(
+        query_ids=ids((121, 139)), summary=(
+            "Direct ratio test (scale BOTH inputs of a pair by the same factor at the R1 midpoint baseline, 0.8213; a pure ratio "
+            "leaves the score unchanged). All 15 pairs of the six active inputs were scaled x1.5 (q121-135). Every pair moved the "
+            "score, e.g. linked/history x1.5 -> 0.6305, so NO pair acts only as a ratio. requested_zone/tenure_years came closest "
+            "(x0.5 .8194, x0.75 .8088, x1.5 .8121; q138, q139, q135) but is not constant, so at most a partial ratio-like "
+            "relationship; kept only as a low-confidence candidate. badge_age/linked_badges matched at x1.5 (.8223) but that was "
+            "a coincidence of additive effects: x0.5 .7743 and x1.25 .8111 (q136, q137) reject it."))),
+    dict(type="threshold", feature="linked_badges", value=15.0, tolerance=1.2, confidence=0.7, evidence=dict(
+        query_ids=ids(15, 26, (97, 98), (140, 142), (146, 148), (159, 164)), summary=(
+            "The near-top bonus from a small number of recent_denials (0.5 vs 0) switches on when linked_badges is about 15 or "
+            "more: s(0.5)-s(0) = ~0 at linked 9.2-10 and 13.8 (q97/q98, q140/q142, q146/q147), +0.0006 at 15 (q163/q164), "
+            "+0.0016 at 16, +0.0023 at 17 (q159-q162), +0.0018 at 18 (q15/q26). A step in linked_badges, not a ratio: the "
+            "denials/linked hypothesis predicted the best denials value to scale with linked, which q146-q148 contradict."))),
 ]
 
 out = dict(round="round-2", team="BB-001", queries_used=len(Q), claims=claims)
