@@ -84,6 +84,20 @@ claims.append(dict(type="interaction", features=["badge_age_days", "linked_badge
         "D .9881, q12/q13/q21/q22). Every Round 2 query is a comparison against this joint optimum. Starting point: "
         "BB-008's published 0.9945 input, verified by our own reproduction (q1, exact). " + BEST_TXT))))
 
+claims += [
+    dict(type="derived_feature", features=["linked_badges", "history_score"], form="ratio", confidence=0.3, evidence=dict(
+        query_ids=ALL, summary=(
+            "Offline test on all our GK-05 queries (R1 150 + R2 120; no extra queries): adding each of the 30 ordered input "
+            "ratios as an extra feature to an ExtraTrees model of logit(score), 5-fold CV x2. linked_badges/history_score "
+            "gave the largest CV-error reduction (-3.8%, MAE 0.01063 -> 0.01023). Consistent with linked_badges being the hub "
+            "of the near-top interactions, but the gain is small, so this is a weak candidate, not an established ratio."))),
+    dict(type="derived_feature", features=["requested_zone", "tenure_years"], form="ratio", confidence=0.2, evidence=dict(
+        query_ids=ALL, summary=(
+            "Same offline ratio scan: requested_zone/tenure_years was the second-best ratio (-3.0% CV error). Weak "
+            "evidence only. Ratios we can argue against: badge_age_days/linked_badges (near-equal ratios 25/20 and 23/18 "
+            "scored .9906 vs .9968), and tenure/history, tenure/badge, zone/history, which made the model worse (+5 to +8%)."))),
+]
+
 out = dict(round="round-2", team="BB-001", queries_used=len(Q), claims=claims)
 p = ROOT / "template" / "round-2" / "findings.json"
 p.parent.mkdir(parents=True, exist_ok=True)

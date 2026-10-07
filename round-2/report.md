@@ -35,6 +35,15 @@
    zone 16 < 14 = 18, linked 17 < 16 < 18) are typical of a tree ensemble's piecewise-constant output. This is a
    hypothesis, not a proven fact (see below).
 
+6. **Ratios between inputs: only weak candidates.** Our query budget was spent, so we tested ratios offline on all
+   270 of our queries. We added each of the 30 input ratios as an extra feature to a tree model and measured
+   held-out error (`experiments/ratio_search.py`). A ratio the system truly uses should cut the error sharply. The
+   best, `linked_badges / history_score`, cut it by only 3.8%; `requested_zone / tenure_years` came next at 3.0%.
+   We report both as low-confidence candidates (0.3 / 0.2), not as established.
+   Ratios we argue against:
+   - `badge_age_days / linked_badges`: near-equal ratios scored 0.9906 vs 0.9968.
+   - tenure/history, tenure/badge and zone/history: adding them made the model worse (+5–8%).
+
 ## How we got there
 
 1. **Starting point, verified (q1–2).** Other teams' public Round 1 issues reported GK-05 results. Systems differ by
