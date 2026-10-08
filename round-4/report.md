@@ -22,8 +22,6 @@
 
 # 1. Objective
 
-## 1. Objective
-
 The objective was to build a **replica of GK-05** that could reproduce its outputs for inputs that were not part of the data available to us.
 
 A successful reconstruction therefore could not simply memorize the examples we had collected. It had to learn the underlying relationships between the inputs and the resulting score well enough to **generalize to previously unseen inputs**.
@@ -279,12 +277,15 @@ With the newly discovered site-B rule included, the strongest candidates were:
 
 | Model | Round 4 MAE | R² | Maximum error |
 |---|---:|---:|---:|
-| **Smooth model + local correction (chosen)** | **0.031** | **0.978** | **0.156** |
+| **Smooth model + local correction (chosen, before final refinement)** | **0.031** | **0.978** | **0.156** |
 | Smooth model + boosted-tree correction | 0.035 | 0.978 | 0.123 |
 | Gaussian process | 0.035 | 0.965 | 0.255 |
 | Smooth model alone | 0.037 | 0.975 | 0.140 |
 | Gradient boosting | 0.058 | 0.934 | 0.259 |
 | XGBoost | 0.062 | 0.917 | 0.311 |
+| **Final replica: same model after refinement (8 knots, interaction splines, Matern 1/2)** | **0.028** | **0.985** | **0.122** |
+
+The first six rows compare model families before the final refinement. The last row is the final replica, after we refined the chosen model; a refinement was kept only if it improved the held-out tests, the group-holdout tests and cross-validation together (details in `experiments/r4_tweaks.json`).
 
 We selected the smooth-model + local-correction approach because it consistently produced strong results across different forms of validation and was also consistent with the broad, smooth behaviour observed in the new data.
 
@@ -424,8 +425,6 @@ Our entire direct interaction with GK-05 was limited to:
 across the three rounds we participated in.
 
 We supplemented these with **35 publicly available GK-05 results**, producing a total of **435 observations** used in the reconstruction process.
-
-Some approaches in the competition may report datasets containing thousands or substantially more observations. We do not make any claim about how those datasets were obtained.
 
 Our result should therefore be understood as:
 
